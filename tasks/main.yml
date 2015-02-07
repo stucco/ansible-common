@@ -10,6 +10,10 @@
 - name: create Stucco bin directory
   file: path={{ stucco_bin }} owner={{ stucco_user }} group={{ stucco_group }} state=directory mode=4777
 
+# DOWNLOAD ANY DATA NECESSARY
+- name: download endogenous-data-uc1 repo
+  git: repo=https://github.com/stucco/endogenous-data-uc1.git dest={{ stucco_dir }}/endogenous-data-uc1
+
 # ONTOLOGY IS SHARED BY DIFFERENT SYSTEMS
 - name: download ontology repo
   git: repo=https://github.com/stucco/ontology.git dest={{ stucco_dir }}/ontology
